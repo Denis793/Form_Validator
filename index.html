@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Form Validator</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link href="./app/style/css/main.css" rel="stylesheet" />
+  </head>
+  <body>
+    <div class="header-bg">
+      <header class="header wrapper">
+        <h1 class="header-title">Create Account</h1>
+      </header>
+    </div>
+
+    <div class="main-bg">
+      <form class="form wrapper" id="form" novalidate>
+        <div class="form-group first-name">
+          <label class="form-title" for="firstName">First name*</label>
+          <input class="personal" type="text" id="firstName" name="firstName" placeholder="Enter your first name" />
+          <span class="error-message"></span>
+        </div>
+
+        <div class="form-group last-name">
+          <label class="form-title" for="lastName">Last name*</label>
+          <input class="personal" type="text" id="lastName" name="lastName" placeholder="Enter your last name" />
+        </div>
+
+        <div class="form-group email">
+          <label class="form-title" for="email">Email*</label>
+          <input class="personal" type="text" id="email" name="email" placeholder="Enter your email" />
+          <span class="error-message"></span>
+        </div>
+
+        <div class="form-group password">
+          <label class="form-title" for="password">Password*</label>
+          <input
+            class="personal"
+            type="password"
+            id="password"
+            name="password"
+            placeholder="Enter your password"
+            autocomplete="new-password"
+          />
+          <span class="error-message"></span>
+        </div>
+
+        <div class="form-group confirm-password">
+          <label class="form-title" for="confirmPassword">Confirm Password*</label>
+          <input
+            class="personal"
+            type="password"
+            id="confirmPassword"
+            name="confirmPassword"
+            placeholder="Confirm your password"
+            autocomplete="new-password"
+          />
+          <span class="error-message"></span>
+        </div>
+
+        <div class="form-group gender">
+          <p class="form-title">Gender:</p>
+          <div class="gender-group">
+            <div class="form-item">
+              <input class="blind-check" type="radio" id="male" name="gender" value="male" checked />
+              <label class="form-label" for="male">Male</label>
+            </div>
+
+            <div class="form-item">
+              <input class="blind-check" type="radio" id="female" name="gender" value="female" />
+              <label class="form-label" for="female">Female</label>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group hobbies">
+          <p class="form-title">Hobbies:</p>
+          <div class="hobbies-group">
+            <div class="form-item">
+              <input class="blind-check" type="checkbox" id="music" name="hobbies" value="music" checked />
+              <label class="form-label" for="music">Music</label>
+            </div>
+
+            <div class="form-item">
+              <input class="blind-check" type="checkbox" id="sports" name="hobbies" value="sports" />
+              <label class="form-label" for="sports">Sport</label>
+            </div>
+
+            <div class="form-item">
+              <input class="blind-check" type="checkbox" id="travel" name="hobbies" value="travel" />
+              <label class="form-label" for="travel">Travel</label>
+            </div>
+
+            <div class="form-item">
+              <input class="blind-check" type="checkbox" id="movies" name="hobbies" value="movies" />
+              <label class="form-label" for="movies">Movies</label>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group source-income">
+          <label class="form-title" for="incomeSource">Source of Income:</label>
+          <select class="input" id="incomeSource" name="incomeSource">
+            <option value="employed">Employed</option>
+            <option value="selfEmployed">Self-Employed</option>
+            <option value="student">Student</option>
+            <option value="unemployed">Unemployed</option>
+          </select>
+        </div>
+
+        <div class="form-group range">
+          <label class="form-title range-label" for="rangeInput">Income Range:</label>
+          <input
+            class="range-input"
+            type="range"
+            id="rangeInput"
+            name="rangeInput"
+            max="10"
+            min="0"
+            value="1"
+            step="1"
+          />
+
+          <output class="range-output" id="rangeValue">1000$</output>
+        </div>
+
+        <div class="form-group upload-file">
+          <label class="form-title" for="file">Upload Profile Picture</label>
+          <div class="upload-file__item">
+            <input class="hidden-input" type="file" id="file" name="file" />
+            <label class="custom-file-label" for="file">Choose file</label>
+            <span class="file-name" id="file-name">No file chosen</span>
+          </div>
+        </div>
+
+        <div class="form-group age">
+          <label class="form-title" for="age">Age*</label>
+          <input class="input" type="number" id="age" name="age" value="17" min="14" max="100" />
+          <span class="error-message"></span>
+        </div>
+
+        <div class="form-group bio">
+          <label class="form-title" for="message">Bio:</label>
+          <textarea
+            class="bio-textarea"
+            id="message"
+            name="message"
+            min-rows="6"
+            cols="40"
+            placeholder="Tell about yourself"
+          ></textarea>
+        </div>
+
+        <button type="submit" class="main-btn">Create</button>
+
+        <p class="result" id="result"></p>
+      </form>
+    </div>
+
+    <script src="./app/js/main.js" type="module"></script>
+  </body>
+</html>

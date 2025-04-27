@@ -1,0 +1,211 @@
+@use 'variables' as *;
+@use 'overrides' as *;
+
+.wrapper {
+  max-width: 140rem;
+  margin: 0 auto;
+}
+
+.input {
+  @extend .input;
+  background-color: var(--bg-color);
+}
+
+.input:focus {
+  border-color: var(--focus-input);
+  background-color: #fff;
+}
+
+.main-bg {
+  background-color: var(--bg-color);
+}
+
+.form {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-areas:
+    'firstName lastName'
+    'email email'
+    'password comfirmPassword'
+    'gender hobbies'
+    'sourceOfIncome incomeRange'
+    'uploadFile age'
+    'bio bio'
+    '. btn';
+  gap: 1rem;
+  padding: 2rem;
+  align-items: start;
+}
+
+.personal {
+  outline: none;
+  @extend .input;
+}
+
+.blind-check {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  outline: none;
+}
+
+.blind-check:checked + .form-label::before {
+  background-color: var(--primary-color);
+}
+
+.blind-check:checked + .form-label::after {
+  opacity: 1;
+}
+
+.form-label {
+  display: flex;
+  position: relative;
+  padding-left: 4rem;
+  align-self: center;
+  cursor: pointer;
+  font-size: 2rem;
+  color: #333;
+}
+
+.form-label::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 0rem;
+  width: 2rem;
+  height: 2rem;
+  background-color: #fff;
+  border: 5px solid var(--check-border);
+  border-radius: 50%;
+  transform: translateY(-50%);
+  transition: border-color 0.3s, background-color 0.3s;
+}
+
+.form-label::after {
+  content: '';
+  position: absolute;
+  top: 0.5rem;
+  left: 1.4rem;
+  width: 1.8rem;
+  height: 1.8rem;
+  transform: translate(-50%);
+  background-color: var(--primary-color);
+  border-radius: 50%;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.form-title {
+  @extend .title;
+}
+
+.form-item {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.hobbies-group .form-label::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  background-color: #fff;
+  opacity: 1;
+}
+
+.hobbies-group .form-label::after {
+  content: '✔';
+  position: absolute;
+  left: 1.8rem;
+  top: 0;
+  background-color: #ffffff00;
+  color: var(--check-border);
+  opacity: 0;
+}
+
+.gender-group,
+.hobbies-group {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+  margin-left: 2rem;
+  align-items: center;
+}
+
+.hidden-input {
+  display: none;
+}
+
+.upload-file {
+  display: grid;
+}
+
+.custom-file-label {
+  display: inline-block;
+  padding: 0.8rem 4rem;
+  background-color: var(--btn-choose-file);
+  color: #fff;
+  border-radius: 8px;
+  font-size: 1.6rem;
+  cursor: pointer;
+  text-align: center;
+  transition: background-color 0.3s ease;
+  &:hover {
+    background-color: #555;
+  }
+}
+
+.file-name {
+  margin-left: 1rem;
+  font-size: 1.6rem;
+  color: #333;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.bio {
+  &-textarea[placeholder] {
+    padding: 1rem 2rem;
+    background: var(--bg-color);
+    border-color: var(--border-color);
+    border-radius: 8px;
+    max-width: 100%;
+    font-size: 1.7rem;
+  }
+}
+
+.main-btn {
+  @extend .btn;
+  padding: 1rem 10rem;
+  justify-self: end;
+  transition: 0.5s;
+  margin-top: 2rem;
+}
+
+.main-btn:hover {
+  box-shadow: 0 0 20px #acacac;
+}
+
+.result {
+  font-size: 2rem;
+}
+
+.error-message {
+  padding: 1rem;
+  font-size: 2rem;
+  color: var(--error-text);
+}
+
+.result.success {
+  color: #155724;
+}
+
+.result.error {
+  color: var(--error-text);
+}

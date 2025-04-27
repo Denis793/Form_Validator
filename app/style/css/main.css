@@ -1,0 +1,483 @@
+@charset "UTF-8";
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+  font-size: 10px;
+  line-height: 1.5;
+  font-family: Roboto;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+input,
+button,
+textarea,
+select {
+  font: inherit;
+  outline: none;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+button {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+:root {
+  --primary-color: #3593b8;
+  --border-color: #b8b6bf;
+  --focus-input: rgb(35, 194, 35);
+  --bg-color: #f7f7f7;
+  --btn-text-color: #fff;
+  --btn-choose-file: #77767e;
+  --check-border: #ffcbba;
+  --error-text: #db1a1a;
+}
+
+.title, .form-title {
+  color: var(--primary-color);
+  font-size: 1.7rem;
+  font-weight: 700;
+  padding: 2rem;
+}
+
+.input, .personal {
+  padding: 0.8rem 3rem;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  font-size: 1.7rem;
+}
+
+.btn, .range-output, .main-btn {
+  background-color: var(--primary-color);
+  font-weight: bold;
+  font-size: 2rem;
+  border-radius: 1rem;
+  color: var(--btn-text-color);
+}
+
+.blind-checkbox {
+  position: absolute;
+  opacity: 0;
+  outline: none;
+}
+
+.wrapper {
+  max-width: 140rem;
+  margin: 0 auto;
+}
+
+.input, .personal {
+  background-color: var(--bg-color);
+}
+
+.input:focus, .personal:focus {
+  border-color: var(--focus-input);
+  background-color: #fff;
+}
+
+.main-bg {
+  background-color: var(--bg-color);
+}
+
+.form {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-areas: "firstName lastName" "email email" "password comfirmPassword" "gender hobbies" "sourceOfIncome incomeRange" "uploadFile age" "bio bio" ". btn";
+  gap: 1rem;
+  padding: 2rem;
+  align-items: start;
+}
+
+.personal {
+  outline: none;
+}
+
+.blind-check {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  outline: none;
+}
+
+.blind-check:checked + .form-label::before {
+  background-color: var(--primary-color);
+}
+
+.blind-check:checked + .form-label::after {
+  opacity: 1;
+}
+
+.form-label {
+  display: flex;
+  position: relative;
+  padding-left: 4rem;
+  align-self: center;
+  cursor: pointer;
+  font-size: 2rem;
+  color: #333;
+}
+
+.form-label::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 0rem;
+  width: 2rem;
+  height: 2rem;
+  background-color: #fff;
+  border: 5px solid var(--check-border);
+  border-radius: 50%;
+  transform: translateY(-50%);
+  transition: border-color 0.3s, background-color 0.3s;
+}
+
+.form-label::after {
+  content: "";
+  position: absolute;
+  top: 0.5rem;
+  left: 1.4rem;
+  width: 1.8rem;
+  height: 1.8rem;
+  transform: translate(-50%);
+  background-color: var(--primary-color);
+  border-radius: 50%;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.form-item {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.hobbies-group .form-label::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 50%;
+  background-color: #fff;
+  opacity: 1;
+}
+
+.hobbies-group .form-label::after {
+  content: "✔";
+  position: absolute;
+  left: 1.8rem;
+  top: 0;
+  background-color: rgba(255, 255, 255, 0);
+  color: var(--check-border);
+  opacity: 0;
+}
+
+.gender-group,
+.hobbies-group {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+  margin-left: 2rem;
+  align-items: center;
+}
+
+.hidden-input {
+  display: none;
+}
+
+.upload-file {
+  display: grid;
+}
+
+.custom-file-label {
+  display: inline-block;
+  padding: 0.8rem 4rem;
+  background-color: var(--btn-choose-file);
+  color: #fff;
+  border-radius: 8px;
+  font-size: 1.6rem;
+  cursor: pointer;
+  text-align: center;
+  transition: background-color 0.3s ease;
+}
+.custom-file-label:hover {
+  background-color: #555;
+}
+
+.file-name {
+  margin-left: 1rem;
+  font-size: 1.6rem;
+  color: #333;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.bio-textarea[placeholder] {
+  padding: 1rem 2rem;
+  background: var(--bg-color);
+  border-color: var(--border-color);
+  border-radius: 8px;
+  max-width: 100%;
+  font-size: 1.7rem;
+}
+
+.main-btn {
+  padding: 1rem 10rem;
+  justify-self: end;
+  transition: 0.5s;
+  margin-top: 2rem;
+}
+
+.main-btn:hover {
+  box-shadow: 0 0 20px #acacac;
+}
+
+.result {
+  font-size: 2rem;
+}
+
+.error-message {
+  padding: 1rem;
+  font-size: 2rem;
+  color: var(--error-text);
+}
+
+.result.success {
+  color: #155724;
+}
+
+.result.error {
+  color: var(--error-text);
+}
+
+.header {
+  text-align: center;
+  color: white;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 22rem;
+}
+
+.header-bg {
+  background-color: var(--primary-color);
+}
+
+.header-title {
+  font-size: 4rem;
+}
+
+.first-name {
+  grid-area: firstName;
+}
+
+.last-name {
+  grid-area: lastName;
+}
+
+.email {
+  grid-area: email;
+}
+
+.password {
+  grid-area: password;
+}
+
+.confirm-password {
+  grid-area: comfirmPassword;
+}
+
+.gender {
+  grid-area: gender;
+}
+
+.hobbies {
+  grid-area: hobbies;
+}
+
+.source-income {
+  grid-area: sourceOfIncome;
+}
+
+.income-range {
+  grid-area: incomeRange;
+}
+
+.upload-file {
+  grid-area: uploadFile;
+}
+
+.age {
+  grid-area: age;
+}
+
+.bio {
+  grid-area: bio;
+}
+
+.main-btn {
+  grid-area: btn;
+}
+
+.range {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  align-items: center;
+}
+
+.range-label {
+  grid-area: 1/1/1/7;
+}
+
+.range-input {
+  grid-area: 2/1/3/6;
+  margin-left: 2rem;
+  background-color: var(--primary-color);
+  cursor: pointer;
+  direction: rtl;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+       appearance: none;
+  width: 95%;
+  height: 4px;
+  background: linear-gradient(to right, #b83f0f 0%, #b83f0f var(--value, 0%), #ddd var(--value, 0%), #ddd 100%);
+  border-radius: 2px;
+  outline: none;
+}
+
+.range-input::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 2.4rem;
+  height: 2.4rem;
+  background-color: #fff;
+  border: 1px solid var(--border-color);
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.range-input::-moz-range-track {
+  background: transparent;
+}
+
+.range-input::-moz-range-progress {
+  background-color: #b83f0f;
+  height: 4px;
+  border-radius: 2px;
+}
+
+.range-input::-moz-range-thumb {
+  width: 14px;
+  height: 14px;
+  background-color: #fff;
+  border: 2px solid #b83f0f;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.range-output {
+  grid-area: 2/6/3/7;
+  padding: 0.4rem 0;
+  margin-left: 2rem;
+  text-align: center;
+}
+
+@media screen and (max-width: 860px) {
+  .form {
+    grid-template-columns: 1fr;
+    grid-template-areas: "firstName" "lastName" "email" "password" "comfirmPassword" "gender" "hobbies" "sourceOfIncome" "incomeRange" "uploadFile" "age" "bio" "btn";
+    gap: 1rem;
+  }
+  .wrapper {
+    padding: 2rem;
+    max-width: 100%;
+  }
+  .header {
+    flex-direction: column;
+    height: auto;
+  }
+  .header-title {
+    font-size: 3.2rem;
+  }
+  .header-image {
+    position: absolute;
+    width: 10rem;
+    height: auto;
+    top: 3.2rem;
+  }
+  .form-group {
+    margin-bottom: 1rem;
+  }
+  .form-item {
+    justify-content: flex-start;
+  }
+  .gender-group,
+  .hobbies-group {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .range-input {
+    margin: 0;
+  }
+  .range-output {
+    font-size: 1.6rem;
+    padding: 0.2rem 0.5rem;
+    margin-left: 0;
+  }
+  .main-btn {
+    background-color: #fff;
+    color: var(--primary-color);
+    border: 2px solid var(--primary-color);
+    justify-self: center;
+    width: 100%;
+  }
+}
+@media screen and (max-width: 480px) {
+  .header-title {
+    font-size: 2rem;
+  }
+  .header-image {
+    position: absolute;
+    width: 6rem;
+    height: auto;
+    top: 3.8rem;
+  }
+  .form-title {
+    font-size: 1.4rem;
+  }
+  .input,
+  .custom-file-label,
+  .btn {
+    font-size: 1.4rem;
+    padding: 0.6rem 1rem;
+  }
+  .input {
+    width: 100%;
+  }
+  .bio-textarea {
+    width: 100%;
+  }
+}

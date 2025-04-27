@@ -1,0 +1,106 @@
+@use 'variables' as *;
+@use 'overrides' as *;
+
+@media screen and (max-width: 860px) {
+  .form {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      'firstName'
+      'lastName'
+      'email'
+      'password'
+      'comfirmPassword'
+      'gender'
+      'hobbies'
+      'sourceOfIncome'
+      'incomeRange'
+      'uploadFile'
+      'age'
+      'bio'
+      'btn';
+    gap: 1rem;
+  }
+
+  .wrapper {
+    padding: 2rem;
+    max-width: 100%;
+  }
+
+  .header {
+    flex-direction: column;
+    height: auto;
+  }
+
+  .header-title {
+    font-size: 3.2rem;
+  }
+
+  .header-image {
+    position: absolute;
+    width: 10rem;
+    height: auto;
+    top: 3.2rem;
+  }
+
+  .form-group {
+    margin-bottom: 1rem;
+  }
+
+  .form-item {
+    justify-content: flex-start;
+  }
+
+  .gender-group,
+  .hobbies-group {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .range-input {
+    margin: 0;
+  }
+
+  .range-output {
+    font-size: 1.6rem;
+    padding: 0.2rem 0.5rem;
+    margin-left: 0;
+  }
+  .main-btn {
+    background-color: #fff;
+    color: var(--primary-color);
+    border: 2px solid var(--primary-color);
+    justify-self: center;
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .header-title {
+    font-size: 2rem;
+  }
+
+  .header-image {
+    position: absolute;
+    width: 6rem;
+    height: auto;
+    top: 3.8rem;
+  }
+
+  .form-title {
+    font-size: 1.4rem;
+  }
+
+  .input,
+  .custom-file-label,
+  .btn {
+    font-size: 1.4rem;
+    padding: 0.6rem 1rem;
+  }
+
+  .input {
+    width: 100%;
+  }
+
+  .bio-textarea {
+    width: 100%;
+  }
+}

@@ -1,0 +1,66 @@
+@use 'variables' as *;
+@use 'overrides' as *;
+
+.range {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  align-items: center;
+}
+
+.range-label {
+  grid-area: 1/1/1/7;
+}
+
+.range-input {
+  grid-area: 2/1/3/6;
+  margin-left: 2rem;
+  background-color: var(--primary-color);
+  cursor: pointer;
+  direction: rtl;
+
+  -webkit-appearance: none;
+  appearance: none;
+  width: 95%;
+  height: 4px;
+  background: linear-gradient(to right, #b83f0f 0%, #b83f0f var(--value, 0%), #ddd var(--value, 0%), #ddd 100%);
+  border-radius: 2px;
+  outline: none;
+}
+
+.range-input::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 2.4rem;
+  height: 2.4rem;
+  background-color: #fff;
+  border: 1px solid var(--border-color);
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.range-input::-moz-range-track {
+  background: transparent;
+}
+
+.range-input::-moz-range-progress {
+  background-color: #b83f0f;
+  height: 4px;
+  border-radius: 2px;
+}
+
+.range-input::-moz-range-thumb {
+  width: 14px;
+  height: 14px;
+  background-color: #fff;
+  border: 2px solid #b83f0f;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.range-output {
+  grid-area: 2/6/3/7;
+  @extend .btn;
+  padding: 0.4rem 0;
+  margin-left: 2rem;
+  text-align: center;
+}

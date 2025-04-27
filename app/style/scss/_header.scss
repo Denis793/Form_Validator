@@ -1,0 +1,19 @@
+@use 'variables' as *;
+
+.header {
+  text-align: center;
+  color: white;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 22rem;
+}
+
+.header-bg {
+  background-color: var(--primary-color);
+}
+
+.header-title {
+  font-size: 4rem;
+}

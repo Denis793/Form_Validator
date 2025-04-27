@@ -1,0 +1,29 @@
+@use 'variables' as *;
+
+.title {
+  color: var(--primary-color);
+  font-size: 1.7rem;
+  font-weight: 700;
+  padding: 2rem;
+}
+
+.input {
+  padding: 0.8rem 3rem;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  font-size: 1.7rem;
+}
+
+.btn {
+  background-color: var(--primary-color);
+  font-weight: bold;
+  font-size: 2rem;
+  border-radius: 1rem;
+  color: var(--btn-text-color);
+}
+
+.blind-checkbox {
+  position: absolute;
+  opacity: 0;
+  outline: none;
+}

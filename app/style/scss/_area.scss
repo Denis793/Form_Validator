@@ -1,0 +1,51 @@
+.first-name {
+  grid-area: firstName;
+}
+
+.last-name {
+  grid-area: lastName;
+}
+
+.email {
+  grid-area: email;
+}
+
+.password {
+  grid-area: password;
+}
+
+.confirm-password {
+  grid-area: comfirmPassword;
+}
+
+.gender {
+  grid-area: gender;
+}
+
+.hobbies {
+  grid-area: hobbies;
+}
+
+.source-income {
+  grid-area: sourceOfIncome;
+}
+
+.income-range {
+  grid-area: incomeRange;
+}
+
+.upload-file {
+  grid-area: uploadFile;
+}
+
+.age {
+  grid-area: age;
+}
+
+.bio {
+  grid-area: bio;
+}
+
+.main-btn {
+  grid-area: btn;
+}
